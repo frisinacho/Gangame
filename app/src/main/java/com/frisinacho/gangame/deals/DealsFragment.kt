@@ -1,16 +1,11 @@
 package com.frisinacho.gangame.deals
 
-import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import com.frisinacho.commons.BaseFragment
 import com.frisinacho.gangame.R
 
-class DealsFragment : Fragment(){
+class DealsFragment : BaseFragment(){
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_deals, container, false)
-        return view
+    override fun getLayoutResId(): Int {
+        return R.layout.fragment_deals
     }
 }
