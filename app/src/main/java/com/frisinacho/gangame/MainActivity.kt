@@ -24,9 +24,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initView()
+
         navigationView.selectedItemId = DEFAULT_OPTION
         navigationView.setOnNavigationItemSelectedListener { item ->
             true
         }
+    }
+
+    fun initView() {
+        val currentFragment = supportFragmentManager
+                .findFragmentById(R.id.fragmentContainer)
+
+        if(currentFragment == null)
+            supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragmentContainer, fragments[DEFAULT_OPTION])
+                    .commit()
     }
 }
