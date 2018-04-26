@@ -2,6 +2,10 @@ package com.frisinacho.gangame
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import com.frisinacho.gangame.deals.DealsFragment
+import com.frisinacho.gangame.owned.TopOwnedFragment
+import com.frisinacho.gangame.rated.TopRatedFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -9,6 +13,12 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val DEFAULT_OPTION = R.id.action_deals
     }
+
+    val fragments : HashMap<Int, Fragment> = hashMapOf(
+            Pair(R.id.action_deals, DealsFragment()),
+            Pair(R.id.action_top_rated, TopRatedFragment()),
+            Pair(R.id.action_most_owned, TopOwnedFragment())
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
