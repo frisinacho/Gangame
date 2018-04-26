@@ -6,7 +6,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val DEFAULT_OPTION = R.id.action_deals
+    companion object {
+        const val DEFAULT_OPTION = R.id.action_deals
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
