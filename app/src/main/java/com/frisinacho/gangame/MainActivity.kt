@@ -28,8 +28,20 @@ class MainActivity : AppCompatActivity() {
 
         navigationView.selectedItemId = DEFAULT_OPTION
         navigationView.setOnNavigationItemSelectedListener { item ->
+            val fragment : Fragment? = fragments[item.itemId]
+
+            if (fragment != null)
+                replaceFragment(fragment)
+
             true
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .commit()
     }
 
     fun initView() {
