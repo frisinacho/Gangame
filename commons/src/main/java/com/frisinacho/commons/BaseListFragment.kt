@@ -18,8 +18,12 @@ abstract class BaseListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.list?.adapter = listAdapter
-        view.list?.layoutManager = LinearLayoutManager(context)
+        view?.list?.let {
+            with(view.list) {
+                adapter = listAdapter
+                layoutManager = LinearLayoutManager(context)
+            }
+        }
     }
 
     abstract fun getAdapter(): RecyclerView.Adapter<*>
