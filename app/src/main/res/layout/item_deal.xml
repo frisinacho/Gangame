@@ -13,6 +13,8 @@
 
         <ImageView
             android:id="@+id/imgThumb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -21,67 +23,73 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_thumb_demo"
-            android:layout_height="0dp"
-            android:layout_width="0dp" />
+            app:srcCompat="@drawable/ic_thumb_demo" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.3" />
+            app:layout_constraintGuide_percent="0.25" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/labelTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:maxLines="2"
-            tools:text="Silence of the sleep"/>
+            tools:text="Silence of the sleep" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/labelRatings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="@string/label_ratings"
             android:textColor="@color/colorAccent"
-            android:textStyle="bold"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/labelTitle"
+            app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/labelMetacriticScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="@color/blue_gray"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/labelRatings"
+            app:layout_constraintTop_toBottomOf="@+id/labelRatings"
             tools:text="50" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/labelSteamRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textColor="@color/blue_gray"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="@+id/textView3"
-            tools:text="50"/>
+            app:layout_constraintStart_toEndOf="@+id/labelMetacriticScore"
+            app:layout_constraintTop_toTopOf="@+id/labelMetacriticScore"
+            tools:text="50" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
