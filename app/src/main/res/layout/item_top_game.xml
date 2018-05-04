@@ -89,6 +89,18 @@
             app:layout_constraintTop_toBottomOf="@+id/labelTitle"
             tools:text="Valve" />
 
+        <TextView
+            android:id="@+id/labelOwners"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/blue_gray"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/labelSteamRating"
+            app:layout_constraintStart_toEndOf="@+id/labelSteamRating"
+            tools:text="130000" />
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
