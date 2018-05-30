@@ -116,6 +116,22 @@
             app:layout_constraintTop_toTopOf="@+id/labelTitle"
             tools:text="$100.00" />
 
+        <TextView
+            android:id="@+id/labelPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
+            tools:text="1" />
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
