@@ -82,6 +82,8 @@
             android:textColor="@color/blue_gray"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:drawableStart="@drawable/ic_steam_rating"
+            android:drawablePadding="4dp"
             app:layout_constraintStart_toEndOf="@+id/labelMetacriticScore"
             app:layout_constraintTop_toTopOf="@+id/labelMetacriticScore"
             tools:text="50" />
