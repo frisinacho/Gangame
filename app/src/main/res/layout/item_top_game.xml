@@ -56,6 +56,8 @@
             android:textColor="@color/blue_gray"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:drawableStart="@drawable/ic_steam_rating"
+            android:drawablePadding="4dp"
             app:layout_constraintStart_toStartOf="@+id/labelPublisher"
             app:layout_constraintTop_toBottomOf="@+id/labelPublisher"
             tools:text="50" />
