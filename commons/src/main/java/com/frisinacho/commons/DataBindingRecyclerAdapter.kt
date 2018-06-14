@@ -17,7 +17,8 @@ class DataBindingRecyclerAdapter<MODEL> (val itemLayoutResId: Int) : RecyclerVie
     }
 
     override fun onBindViewHolder(holder: DataBindingViewHolder<MODEL>, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val item = items[position]
+        holder.bindItem(item)
     }
 
 }
