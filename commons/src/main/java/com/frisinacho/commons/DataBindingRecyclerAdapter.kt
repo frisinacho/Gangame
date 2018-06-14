@@ -8,7 +8,7 @@ class DataBindingRecyclerAdapter<MODEL> (val itemLayoutResId: Int) : RecyclerVie
     val items = mutableListOf<MODEL>()
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return items.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataBindingViewHolder<MODEL> {
