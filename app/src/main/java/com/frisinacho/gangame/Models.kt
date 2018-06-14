@@ -1,5 +1,10 @@
 package com.frisinacho.gangame
 
+object PriceFormatter {
+    val FORMAT_PRICE = "$%.2f"
+    fun priceFormatted(price: Float) = String.format(FORMAT_PRICE, price)
+}
+
 data class Deal(var title: String,
                 var salePrice: Float,
                 var normalPrice: Float,
@@ -7,10 +12,11 @@ data class Deal(var title: String,
                 var steamRating: Int,
                 var thumb: String) {
 
-    val FORMAT_PRICE = "$%.2f"
+    val salePriceFormatted: String
+    get() = PriceFormatter.priceFormatted(salePrice)
 
-    fun salePriceFormatted() = String.format(FORMAT_PRICE, salePrice)
-    fun normalPriceFormatted() = String.format(FORMAT_PRICE, normalPrice)
+    val normalPriceFormatted: String
+    get() = PriceFormatter.priceFormatted(normalPrice)
 }
 
 data class TopGame(var title: String,
