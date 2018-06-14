@@ -6,7 +6,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
-class DataBindingRecyclerAdapter<MODEL> (val itemLayoutResId: Int) : RecyclerView.Adapter<DataBindingViewHolder<MODEL>>() {
+class DataBindingRecyclerAdapter<MODEL> (val itemVariableId: Int,
+                                         val itemLayoutResId: Int) : RecyclerView.Adapter<DataBindingViewHolder<MODEL>>() {
 
     val items = mutableListOf<MODEL>()
 
@@ -20,8 +21,7 @@ class DataBindingRecyclerAdapter<MODEL> (val itemLayoutResId: Int) : RecyclerVie
                 parent,
                 false)
 
-        val view = parent.inflate(itemLayoutResId)
-        return DataBindingViewHolder(view)
+        return DataBindingViewHolder(itemVariableId, binding)
     }
 
     override fun onBindViewHolder(holder: DataBindingViewHolder<MODEL>, position: Int) {
