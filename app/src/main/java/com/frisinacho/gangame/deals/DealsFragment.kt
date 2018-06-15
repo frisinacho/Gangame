@@ -17,10 +17,13 @@ class DealsFragment : BaseListFragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (listAdapter as DataBindingRecyclerAdapter<Deal>)
+                .items.addAll(getDummyDeals())
     }
 
     fun getDummyDeals(): ArrayList<Deal> {
-        arrayListOf(Deal("Counter Strike",
+        return arrayListOf(Deal("Counter Strike",
                 0.99F,
                 9.99F,
                 80,
