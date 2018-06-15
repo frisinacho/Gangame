@@ -18,4 +18,13 @@ class DealsFragment : BaseListFragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
+
+    fun getDummyDeals(): ArrayList<Deal> {
+        arrayListOf(Deal("Counter Strike",
+                0.99F,
+                9.99F,
+                80,
+                80,
+                "http://cdn.akamai.steamstatic.com/steam/apps/10/capsule_184x69.jpg"))
+    }
 }
