@@ -20,6 +20,7 @@ class DealsFragment : BaseListFragment(){
 
         (listAdapter as DataBindingRecyclerAdapter<Deal>)
                 .items.addAll(getDummyDeals())
+        listAdapter.notifyDataSetChanged()
     }
 
     fun getDummyDeals(): ArrayList<Deal> {

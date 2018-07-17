@@ -23,6 +23,7 @@ class TopOwnedFragment : BaseListFragment(){
 
         (listAdapter as DataBindingRecyclerAdapter<TopGame>)
                 .items.addAll(getDummyTopGames())
+        listAdapter.notifyDataSetChanged()
     }
 
     fun getDummyTopGames(): ArrayList<TopGame> {
