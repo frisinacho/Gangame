@@ -23,6 +23,14 @@ android {
         }
     }
 
+    flavorDimensions "sdk"
+
+    publishNonDefault true
+    productFlavors {
+        mock {dimension "sdk"}
+        prod {dimension "sdk"}
+    }
+
 }
 
 dependencies {
