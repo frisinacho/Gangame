@@ -6,9 +6,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 class GangameApiService {
 
     init {
-        val apiClientBuilder =
+        val apiClientConfig =
                 Retrofit.Builder()
                 .baseUrl(Routes.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                        .build()
     }
 }
