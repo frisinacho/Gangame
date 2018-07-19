@@ -21,7 +21,7 @@ class MockResponseInterceptor(val responses: HashMap<String, String>,
                 .build()
     }
 
-    private fun getResponseFor(ursl: String): String {
+    private fun getResponseFor(url: String): String {
         return if (responses.containsKey(url))
             responses[url]!!
         else
