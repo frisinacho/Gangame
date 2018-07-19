@@ -1,6 +1,7 @@
 package com.frisinacho.gangamesdk
 
 import com.google.gson.Gson
+import junit.framework.Assert
 import org.junit.Test
 
 class ModelUnitTest {
@@ -30,6 +31,13 @@ class ModelUnitTest {
     fun dealParsingTest() {
         val gson = Gson()
         val deal = gson.fromJson(JSON_DEAL, Deal::class.java)
+
+        Assert.assertEquals(deal.title, "Toki Tori")
+        Assert.assertEquals(deal.metacriticScore, 80)
+        Assert.assertEquals(deal.steamRating, 88)
+        Assert.assertEquals(deal.salePrice, 0.49F)
+        Assert.assertEquals(deal.normalPrice, 4.99F)
+        Assert.assertEquals(deal.thumb, "http://cdn.akamai.steamstatic.com/steam/apps/38700/capsule_sm_120.jpg?t=1488471030")
     }
 
     @Test
