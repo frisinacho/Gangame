@@ -9,7 +9,12 @@ class RequestTest {
     fun dealsRequest_success(){
         val apiService = GangameApiService()
         val response = apiService.apiClient.getDeals().execute()
+        val deals = response.body()
 
         Assert.assertTrue(response.isSuccessful)
+
+        deals?.let {
+            Assert.assertEquals(deals.size, 4)
+        }
     }
 }
