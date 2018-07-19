@@ -23,7 +23,12 @@ class RequestTest {
             Assert.assertEquals(deals.size, jsonResponse.size())
 
             deals.zip(jsonResponse).forEach { (deal, jsonDeal) ->
-                Assert.assertEquals(deal.title, jsonDeal.asJsonObject["title"])
+                with(jsonDeal.asJsonObject){
+                    Assert.assertEquals(deal.title, this["title"].asString)
+                    Assert.assertEquals(deal.metacriticScore, this["metacriticScore"].asInt)
+                    Assert.assertEquals(deal.steamRating, this["steamRatingPercent"].asInt)
+                    Assert.assertEquals(deal.thumb, this["thumb"].asString)
+                }
             }
         }
     }
