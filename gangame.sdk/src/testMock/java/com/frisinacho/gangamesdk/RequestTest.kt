@@ -21,6 +21,10 @@ class RequestTest {
 
         deals?.let {
             Assert.assertEquals(deals.size, jsonResponse.size())
+
+            deals.zip(jsonResponse).forEach { (deal, jsonDeal) ->
+                Assert.assertEquals(deal.title, jsonDeal.asJsonObject["title"])
+            }
         }
     }
 }
