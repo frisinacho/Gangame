@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class GangameApiService(val apiConfig: GangameApiConfig) {
+class GangameApiService(val apiConfig: GangameApiConfig = GangameClientConfig()) {
 
     val apiClient: RetrofitGangameApi
 
