@@ -1,7 +1,9 @@
 package com.frisinacho.gangamesdk
 
+import com.frisinacho.gangamesdk.serializer.ListTopGameDeserializer
 import com.frisinacho.gangamesdk.serializer.TopGameDeserializer
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -10,8 +12,10 @@ class GangameApiService(val apiConfig: GangameApiConfig = GangameClientConfig())
     val apiClient: RetrofitGangameApi
 
     init {
+        val tokenType = object: TypeToken<ArrayList<TopGame>>(){}.type
         val gson = GsonBuilder()
                 .registerTypeAdapter(TopGame::class.java, TopGameDeserializer())
+                .registerTypeAdapter(tokenType, ListTopGameDeserializer())
                 .create()
 
         val apiClientConfig =
