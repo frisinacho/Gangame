@@ -23,6 +23,15 @@ android {
     dataBinding {
         enabled = true
     }
+
+    /*
+    flavorDimensions "sdk"
+
+    productFlavors {
+        mock {dimension "sdk"}
+        prod {dimension "sdk"}
+    }
+    */
 }
 
 dependencies {
@@ -37,6 +46,11 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation project (':commons')
     kapt "com.android.databinding:compiler:$gradle_version"
+
+    /*
+    mockImplementation project(path: ':gangame.sdk', configuration: 'mockRelease')
+    prodImplementation project(path: ':gangame.sdk', configuration: 'prodRelease')
+    */
 }
 repositories {
     mavenCentral()
