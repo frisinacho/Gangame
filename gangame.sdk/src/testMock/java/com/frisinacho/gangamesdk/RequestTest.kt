@@ -1,7 +1,7 @@
 package com.frisinacho.gangamesdk
 
 import com.google.gson.JsonArray
-import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import org.junit.Assert
 import org.junit.Test
@@ -28,6 +28,37 @@ class RequestTest {
                     Assert.assertEquals(deal.metacriticScore, this["metacriticScore"].asInt)
                     Assert.assertEquals(deal.steamRating, this["steamRatingPercent"].asInt)
                     Assert.assertEquals(deal.thumb, this["thumb"].asString)
+                }
+            }
+        }
+    }
+
+    @Test
+    fun topRatedRequest_success(){
+        val apiService = GangameApiService()
+        val response = apiService.apiClient.getTopRatedGames().execute()
+        val games = response.body()
+
+        val parser = JsonParser()
+        val jsonResponse: List<JsonObject> = parser.parse(MockResponses.TOP_100_GAMES)
+                .asJsonObject
+                .entrySet()
+                .map { (_, json) ->
+                    json.asJsonObject
+                }
+
+        Assert.assertTrue(response.isSuccessful)
+
+        games?.let {
+            Assert.assertEquals(games.size, jsonResponse.size)
+
+            games.zip(jsonResponse).forEach { (topGame, jsonTopGame) ->
+                with(jsonTopGame.asJsonObject){
+                    Assert.assertEquals(topGame.title, this["name"].asString)
+                    Assert.assertEquals(topGame.steamRating, this["score_rank"].asInt)
+                    Assert.assertEquals(topGame.publisher, this["publisher"].asString)
+                    Assert.assertEquals(topGame.owners, this["owners"].asInt)
+                    Assert.assertEquals(topGame.thumb, "http://cdn.akamai.steamstatic.com/steam/apps/${this["appid"].asInt}/capsule_184x69.jpg")
                 }
             }
         }
