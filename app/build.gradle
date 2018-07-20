@@ -24,14 +24,12 @@ android {
         enabled = true
     }
 
-    /*
     flavorDimensions "sdk"
 
     productFlavors {
         mock {dimension "sdk"}
         prod {dimension "sdk"}
     }
-    */
 }
 
 dependencies {
@@ -47,10 +45,7 @@ dependencies {
     implementation project (':commons')
     kapt "com.android.databinding:compiler:$gradle_version"
 
-    /*
-    mockImplementation project(path: ':gangame.sdk', configuration: 'mockRelease')
-    prodImplementation project(path: ':gangame.sdk', configuration: 'prodRelease')
-    */
+    implementation project(path: ':gangame.sdk')
 }
 repositories {
     mavenCentral()
