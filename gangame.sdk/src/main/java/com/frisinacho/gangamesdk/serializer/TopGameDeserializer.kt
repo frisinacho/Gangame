@@ -17,10 +17,16 @@ class TopGameDeserializer : JsonDeserializer<TopGame>{
         val gson = Gson()
 
         val topGame = gson.fromJson(json, TopGame::class.java)
-        val appId = json.asJsonObject["appid"].asInt.toString()
+
+        val jsonGame = json.asJsonObject
+        val appId = jsonGame["appid"].asInt.toString()
+
+        val rawRating = jsonGame["score_rank"].asString
+        val steamRating = if(rawRating.isEmpty()) 0 else Integer.parseInt(rawRating)
 
         val thumb = String.format(BASE_IMAGE_URL, appId)
         topGame.thumb = thumb
+        topGame.steamRating = steamRating
 
         return topGame
     }
