@@ -27,6 +27,7 @@ class TopGameDeserializer : JsonDeserializer<TopGame>{
         val thumb = String.format(BASE_IMAGE_URL, appId)
         topGame.thumb = thumb
         topGame.steamRating = steamRating
+        topGame.price = topGame.price / 100
 
         return topGame
     }
