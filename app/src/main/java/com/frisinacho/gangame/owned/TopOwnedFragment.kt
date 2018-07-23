@@ -1,6 +1,7 @@
 package com.frisinacho.gangame.owned
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.frisinacho.gangame.BR
@@ -40,5 +41,11 @@ class TopOwnedFragment : BaseListFragment(){
 
     private fun showError(error: Throwable) {
         error.printStackTrace()
+
+        view?.let {
+            Snackbar.make(view as View, R.string.error_request, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.label_retry, { _: View -> showMostOwned()})
+                    .show()
+        }
     }
 }
